@@ -3,7 +3,7 @@ def beolvasas():
     with open("kutyusok.txt", encoding = "utf-8") as f:
         for line in f:
             line = line.strip()
-            kutyusok.append(line)
+            kutyusok.append(line.capitalize())
     f.close()
 
 def db():
@@ -29,14 +29,20 @@ def ismetles():
             print(f"{item} - {ismetlodo_nevek[item]}")
 
 def abc():
-    while len(kutyusok) != 0:
-        
+    print(*sorted(kutyusok))
 
+def nagybetu():
+    with open("kutyusok_nagy.txt", "w", encoding = "utf-8") as ujfajl:
+        for i in kutyusok:
+            ujfajl.write(f"{i} \n")
+    ujfajl.close()
 
 def main():
     beolvasas()
     db()
     ibetu()
     ismetles()
+    abc()
+    nagybetu()
 
 main()
